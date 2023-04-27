@@ -1,0 +1,13 @@
+names:
+- black
+- white
+nc: 2
+roboflow:
+  license: CC BY 4.0
+  project: train-gid0o
+  url: https://universe.roboflow.com/project/train-gid0o/dataset/7
+  version: 7
+  workspace: project
+test: ../test/images
+train: Train-7/train/images
+val: Train-7/valid/images

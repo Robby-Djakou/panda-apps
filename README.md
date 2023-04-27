@@ -1,77 +1,80 @@
-# Masterarbeit Robby Courbis Tatchou Djakou MOS Hochschule Furtwangen
+# Demonstration video from the application
+[![Tic-Tac-Toe, Tower of Hanoi and checkers games with panda robot](https://img.youtube.com/vi/T34peibtNsY/maxresdefault.jpg)](https://youtu.be/T34peibtNsY)
+
+# Master's thesis Robby Courbis Tatchou Djakou at the Furtwangen University of Applied Sciences
 
 ## Franka Emika Games
-**Franka Emika Game** ist eine Desktop-Anwendung, die in Python-Programmiersprache entwickelt wurde, mit dem Ziel drei Spiele, und zwar Tic-Tac-Toe, Türme von Hanoi und Dame anzubieten. Mit dieser Anwendung hat der Benutzer die Möglichkeit eine dieser 3 Spiele gegen eines Armroboters, und zwar den **Panda-Roboter** zu spielen. Durch den Einsatz einer 2D-Kamera hat der Panda-Roboter die Möglichkeit die Spielumgebung zu überwachen und die Züge durchzuführen.
+**Franka Emika Game** is a desktop application developed in the Python programming language with the aim of offering three games, namely Tic-Tac-Toe, Towers of Hanoi and Checkers. With this application, the user has the opportunity to play one of these 3 games against a robotic arm, namely the **Panda Robot**. With the help of a 2D camera, the panda robot can monitor the game environment and execute the game moves.
 
-Für eine reibungslose Ausführung dieser Anwendung müssen sowohl Softwarekomponente als auch Hardwarekomponente vorbereitet werden. 
+For a smooth execution of this application, both the software and hardware components need to be prepared.
 #
-## Hardwarekomponente
-+ Eine 2D-Kamera oder Webcam (zu empfehlen ist **Logitech c270**)
-+ Ein Verlängerungskabel mit folgenden Ports (USB zu A-Buchse)
-+ Der Panda-Roboter
-+ Eine Kamera-Tischhalterung
+## Hardware component
++ A 2D camera or webcam (the **Logitech c270** is recommended).
++ An extension cable
++ The Panda robot
++ A camera table mount
 
-### Aufbau der Hardwarekomponente
+### Hardware component design
 
-+ Die Kamera muss an der Kamera-Tischhalterung befestigt werden.
-+ Die Kamera muss über die Kamera-Tischhalterung parallel zu dem Tisch festmontiert werden.
-+ Die Kamera muss in der Richtung der x-Koordinate des Panda-Roboters montiert werden. 
-+ Bevor die Kalibrierung durchgeführt wird, muss die Kamera montiert werden, sodass der Punkt A wie in der unteren Abbildung angezeigt wird, oben recht in der Kameraaufnahme sich befinden muss. **(sehr wichtig für die Durchführung des Damespiels)**
-+ Die Kamera muss über A-Buchse mit dem Verlängerungskabel verbunden werden.
-+ Der andere Teil (USB) des Verlängerungskabels muss am Bedienrechner des Pandas angebunden werden. 
++ The camera must be attached to the camera table mount.
++ The camera must be fixed with the camera table bracket parallel to the table.
++ The camera must be mounted in the direction of the x-coordinate of the Panda Robot.
++ Before calibration, the camera must be mounted so that point A is at the top left of the camera image, as shown in the figure below. **(very important for performing the checkers game)**.
++ The camera must be connected to the extension cable.
++ The other part (USB) of the extension cable must be connected to the operating computer of the Panda.
 
-Ein Beispiel eines Aufbaus können sie auf der folgenden Abbildung sehen.
+In the following illustration you can see an example of a setup.
 
 
-![panda_roboter](image_readme/pandaroboterkoordinaten.png?raw=true "Panda Roboter")
+![panda_robot](image_readme/pandaroboterkoordinaten.png?raw=true "Panda Robot")
 
-Nachdem die Hardwarekomponente montiert sind, kümmern wir uns jetzt um den Softwareteil.
+Now that the hardware components are assembled, we can take care of the software part.
 #
-## Softwarekomponente
-In diesem Teil wurde die Installation von der Anwendung Franka Emika Games auf Ubuntu-Betriebssystem berücksichtigt, da Ubuntu auf dem Bedienrechner des Panda-Roboters installiert wurde:
+## Software component
+In this part, we considered the installation of the Franka Emika Games application on the Ubuntu operating system, since Ubuntu was installed on the Panda Robot's operating computer:
 
-Folgende Schritte müssen durchgeführt werden:
-+ das Herunterladen von Microsoft Visual Studio Code mit der Dateinamenserweiterung ***.deb*** unter https://code.visualstudio.com/. Während des Herunterladens wird gefragt, in welchem Ordner und unter welchem Namen die Datei gespeichert werden muss. (für ein besseres Verständnis während der Anleitung wird die Datei mit folgenden Namen ***vcode.deb*** verwendet).
-+ Ein Terminal muss geöffnet werden und Sie müssen in Verzeichnis, in dem die Datei liegt, navigieren. Dafür kann der Befehl `cd` eingesetzt werden. Die Installation von Microsoft Visual Studio Code erfolgt in dem Verzeichnis von der heruntergeladenen Datei  unter dem Befehl:
+The following steps must be performed:
++ Download Microsoft Visual Studio Code with the filename extension ***.deb***, available at https://code.visualstudio.com/. During the download you will be asked in which folder and under which name the file should be saved. (for better understanding during the tutorial, the file with the following name ***vcode.deb*** is used).
++ A terminal must be open and you must navigate to the directory where the file is located. The command `cd` can be used for this. Microsoft Visual Studio Code is installed in the directory from the downloaded file with the command:
     ```
     sudo apt install ./vcode.deb
     ```
-+ Nachdem Microsoft visual studio code installiert wurde, muss Python installiert werden. Das erfolgt mit dem Befehl:
++ After Microsoft Visual Studio Code has been installed, Python must be installed. This is done with the command:
     ```
     sudo apt install python3
     ```
-+ Außerdem muss Python für Microsoft Visual Studio Code installiert werden. Nachdem Microsoft Visual Studio Code geöffnet wurde, im Menüpunkt ***Erweiterung***, können Sie **Python** eingeben  und suchen. Die Version von Python mit einem ***blauen Häkchen***  und die Verifizierungsnachricht ***Dieser Herausgeber hat den Besitz von microsoft.com überprüft*** können Sie wählen und auf  ***install*** anklicken.
++ Python for Microsoft Visual Studio Code must also be installed. After opening Microsoft Visual Studio Code, you can enter **Python** under the menu item ***Extension*** and search. The version of Python with a ***blue tick*** and the verification message ***This publisher has verified ownership of microsoft.com*** can be selected and installed.
 
-+ Nachdem die Installation fertig ist, starten Sie Microsoft Visual Studio Code neu. 
-+ Öffnen sie einen Terminal und installieren Sie ***python3.8-venv***. Das Ziel ist eine virtuelle Umgebung von Python zu erzeugen, damit die benötigen  Paketen für die Ausführung der Anwendung dort installiert wird. Um dieses Paket zu installieren, muss folgender Befehl ausgeführt werden:
++ After the installation is complete, restart Microsoft Visual Studio Code.
++ Open a terminal and install ***python3.8-venv***. The aim is to create a Python virtual environment so that the required packages are installed there. To install this package, run the following command:
     ```
     sudo apt install python3.8-venv
     ```
-+ Die virtuelle Umgebung ermöglicht die Installation von Paketen oder Modulen in einer gekapselten Umgebung, unabhängig von der Basis-Umgebung von Python. Das bedeutet alle Änderungen, die in der virtuellen Umgebung durchgeführt werden, haben keinen Einfluss auf die Basis-Umgebung. Das Erzeugen einer virtuellen Umgebung kann unter folgenden Befehlen erfolgen:
++ The virtual environment allows packages or modules to be installed in an encapsulated environment that is independent of the base Python environment. This means that any changes made in the virtual environment will not affect the base environment. The creation of a virtual environment can be done with the following commands:
 
-    + Erstellung eines Ordners, in dem die virtuelle Umgebung angelegt wird:
+    + Creation of a folder in which the virtual environment is created:
         ```
-        mkdir virtUmgebung
+        mkdir virtEnvironment
         ```
-    + Anlegen von der virtuellen Umgebung:
+    + Creating the virtual environment:
         ```
-        python3 -m venv virtUmgebung/
+        python3 -m venv virtEnvironment/
         ```
-    + Aktivierung von der virtuellen Umgebung:
+    + Activate the virtual environment:
         ```
-        source virtUmgebung/bin/activate
+        source virtEnvironment/bin/activate
         ```
-    + Für die Deaktivierung erfolgt den Befehl:
+    + To deactivate, give the command:
         ```
         deactivate
         ```
-+ Virtual Studio Code ermöglicht den Einsatz von der virtuellen Umgebungen, dafür muss folgende Schritte durchgeführt werden:
-    + Starten der Suche von Option in Visual Studio Code mit dem Tastaturkürzel: **STRG + Umschalt-Taste + P**
-    + In dem Suchfeld ***>python: interpreter auswählen*** schreiben und **ENTER** drücken.
-    + Die Option ***+ Interpreterpfad eingeben*** und auf ***Suchen...*** anklicken.
-    + Es wird ein Fenster angezeigt und das Ziel ist die Datei `python` unter `virtUmgebung/bin/` auszuwählen.
++ Virtual Studio Code allows the use of virtual environments, for which the following steps must be taken:
+    + Start the search for option in Visual Studio Code with the keyboard shortcut: **STRG + Shift + P**
+    + Type ***>python: select interpreter*** in the search box and press **ENTER**.
+    + The option ***+ Enter interpreter path*** and click ***Search...***.
+    + A window will appear and the goal is to select the file `python` under `virtEnvironment/bin/`.
 
-+ Nach der Erstellung der virtuellen Umgebung müssen die benötigten Pakete für die Ausführung der Anwendung installiert werden. Dafür muss ein Terminal gestartet werden und die früher erstellte virtuelle Umgebung muss über den Terminal aktiviert werden, dann zu Ordner der Anwendung (**Franka_Emika_Apps_Final_Version**) von der Anwendung navigieren und folgende Befehle ausführen:
++ After creating the virtual environment, the necessary packages to run the application must be installed. To do this, start a terminal and activate the previously created virtual environment via the terminal, then navigate to the application's folder (**Franka_Emika_Apps_Final_Version**) and execute the following commands:
     ```
     sudo apt-get update
     sudo apt-get install python3-tk
@@ -82,15 +85,15 @@ Folgende Schritte müssen durchgeführt werden:
     pip install tensorflow
     pip install frankx
     ```
-+ Nachdem Microsoft Visual Code konfiguriert wurde, muss der
-Ordner von der Anwendung in Visual Studio Code geöffnet werden. Dafür muss auf ***Datei > Ordner öffnen...*** angeklickt werden, ein Fenster wird angezeigt und das Ziel ist bis zu Ordner der Anwendung zu navigieren. Wenn der Ordner geöffnet wird, dann unten auf ***Ordner auswählen*** anklicken.
-+ Die Datei `appFrankaEmikaGames.py` in Microsoft Visual Studio Code auswählen und ausführen. (**wichig**: Prüfen Sie erstmal den Kameraindex in der `config.py` ob es richtig ist)
-+ Nach der Ausführung der Anwendung, erstmal der Knopf `Calibrate Camera` in der Startseite der Anwendung wählen und die Kalibrierung durchführen, bevor ein Spiel gestartet wird. 
-+ Die 4 Punkten auf dem Tisch wie in der oberen Abbildung müssen wie folgt ausgewählt werden: **A, B, C, D**
-+ andere 4 Punkten können auch gewählt werden, aber dafür muss der Punkt A von dem Panda-Roboter bekannt sein. Sie können den neuen Wert von A in der `config.py` einstellen.
-+ Jetzt können Sie ein Spiel starten und genießen.
-+ **Anmerkung:** Für das Spiel Tic-Tac-Toe muss das Spielfeld wie folgt aussehen:
-![tic-tac-toe-spielfeld](image_readme/Tic-Tac-Toe.jpeg?raw=true "Tic-Tac-Toe Spielfeld")
++ After Microsoft Visual Code has been configured, the
+folder of the application must be opened in Visual Studio Code. To do this, click ***File > Open Folder...***, a window will appear and the goal is to navigate to the application's folder. Once the folder is open, click ***Select Folder*** at the bottom.
++ Select and run the file `appFrankaEmikaGames.py` in Microsoft Visual Studio Code. (**Important**: First check the camera index in `config.py` to make sure it is correct).
++ After starting the application, first select the 'Calibrate Camera' button on the home page of the application and perform the calibration before starting a game. 
++ The 4 points on the table, as shown in the picture above, must be selected as follows: **A, B, C, D**
++ Other 4 points can also be selected, but for this, point A must be known to the Panda robot. You can set the new value of A in the `config.py`.
++ Now you can start a game and enjoy.
++ **Note:** For the game Tic-Tac-Toe, the game field must look like this:
+![tic-tac-toe-gamefield](image_readme/Tic-Tac-Toe.jpeg?raw=true "Tic-Tac-Toe Gamefield")
 
 
 

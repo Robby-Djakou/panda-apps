@@ -87,7 +87,7 @@ class AppModel(threading.Thread):
         
         ################# Panda-Robot
         # to connect with pandas
-        """self.HOST = "141.28.57.193"  # Standard loopback interface address (localhost)
+        """self.HOST = "0.0.0.0"  # Standard loopback interface address (localhost)
         self.PORT = 65440  # Port to listen on (non-privileged ports are > 1023)
         self.parser = ArgumentParser()
         self.parser.add_argument('--host', default='192.168.100.100', help='FCI IP of the robot')
